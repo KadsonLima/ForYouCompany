@@ -1,0 +1,22 @@
+<mat-toolbar class="header" [ngClass]="{'small-screen': isSmallScreen, 'large-screen': !isSmallScreen}" >
+    <img class="logo" src="../../../assets/logo.jpg" alt="forYouCompany"/>
+    <mat-icon class="menu" fontIcon="menu" *ngIf="isSmallScreen" (click)="isSideOpen = true"/>
+    <div class="links" *ngIf="!isSmallScreen">
+        <a routerLink="/">Home</a>
+        <a routerLink="/portfolio">Portfólio</a>
+        <a routerLink="/depoimentos">Depoimentos</a>
+        <a routerLink="/quem-somos">Quem Somos</a>
+        <a routerLink="/orcamento">Orçamento</a>
+    </div>
+   
+</mat-toolbar>
+<aside class="aside" *ngIf="isSmallScreen && isSideOpen" [ngClass]="{ 'open': isSideOpen }">
+    <div class="links" style="position: relative;">
+        <mat-icon fontIcon="close"  (click)="isSideOpen = false" style="position: absolute; right: 20px; top: 25px; height: auto; width: auto;"/>
+        <a routerLink="/">Home</a>
+        <a routerLink="/portfolio">Portfólio</a>
+        <a routerLink="/depoimentos">Depoimentos</a>
+        <a routerLink="/quem-somos">Quem Somos</a>
+        <a routerLink="/orcamento">Orçamento</a>
+    </div>
+</aside>
